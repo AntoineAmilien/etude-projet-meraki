@@ -29,8 +29,8 @@ const Organizations = (props) => {
                                 <div class="form-control w-full max-w-xs">
                                     <select {...register("organisationId", { required: true, message: "Merci de selectioner une organisation." })} class="select select-bordered">
                                         <option disabled selected value="">Organisation</option>
-                                        {organizations.map((organization) => {
-                                            return <option value={organization.id}>{organization.name}</option>
+                                        {organizations.map((organization, index) => {
+                                            return <option value={organization.id} key={"organizationOption_" + index}>{organization.name}</option>
                                         })}
                                     </select>
                                     {errors.organisationId && errors.organisationId.type === "required" && <label class="label">
