@@ -61,21 +61,21 @@ const Configuration = (props) => {
                                     </div>
 
                                     <form onSubmit={handleSubmit(onSubmitConfiguration)}>
-                                        <div class="flex flex-col w-full border-opacity-50">
-                                            <div class="divider">Network-wide</div>
-                                            <div class="grid h-20 card bg-base-300 rounded-box place-items-center">...</div>
-                                            <div class="divider">Wireless</div>
-                                            <div class="grid h-20 card bg-base-300 rounded-box place-items-center">...</div>
-                                            <div class="divider">Security appliance</div>
-                                            <div class="grid h-20 card bg-base-300 rounded-box place-items-center">...</div>
-                                            <div class="divider">Switch</div>
-                                            <div class="grid h-20 card bg-base-300 rounded-box place-items-center">
+                                        <div className="flex flex-col w-full border-opacity-50">
+                                            <div className="divider">Network-wide</div>
+                                            <div className="grid h-20 card bg-base-300 rounded-box place-items-center">...</div>
+                                            <div className="divider">Wireless</div>
+                                            <div className="grid h-20 card bg-base-300 rounded-box place-items-center">...</div>
+                                            <div className="divider">Security appliance</div>
+                                            <div className="grid h-20 card bg-base-300 rounded-box place-items-center">...</div>
+                                            <div className="divider">Switch</div>
+                                            <div className="grid h-20 card bg-base-300 rounded-box place-items-center">
                                                 <ul>
                                                     <li>
-                                                        <div class="form-control">
-                                                            <label class="label cursor-pointer">
-                                                                <input type="checkbox" class="toggle toggle-primary" {...register("portDown", { value: alertsConfiguration.alerts.filter(el => { return el.type === "portDown" })[0].enabled })} />
-                                                                <span class="ml-4 label-text">Any port goes down for more than 60 minutes</span>
+                                                        <div className="form-control">
+                                                            <label className="label cursor-pointer">
+                                                                <input type="checkbox" className="toggle toggle-primary" {...register("portDown", { value: alertsConfiguration.alerts.filter(el => { return el.type === "portDown" })[0].enabled })} />
+                                                                <span className="ml-4 label-text">Any port goes down for more than 60 minutes</span>
                                                             </label>
                                                         </div>
                                                     </li>
