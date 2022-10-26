@@ -8,7 +8,7 @@ export default async function handler(req, res) {
                 res.status(201).json({ success: true, message: "La configuration a bien été modifiée." })
             } catch (error) {
                 console.error(error)
-                res.status(500).json({ success: false, message: "Une erreur c'est produite pendant la modification de la configuration." })
+                res.status(500).json({ success: false, message: "Une erreur c'est produite pendant le traitement du signal webhook meraki" })
             }
 
             break;
