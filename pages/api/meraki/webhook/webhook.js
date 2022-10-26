@@ -4,6 +4,7 @@ export default async function handler(req, res) {
     switch (method) {
         case 'POST':
             try {
+
                 console.log("API WEBHOOK MERAKI call : " + JSON.stringify(req))
                 res.status(201).json({ success: true, message: "Retour de l'api meraki" })
             } catch (error) {
