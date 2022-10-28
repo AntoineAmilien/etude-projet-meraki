@@ -1,6 +1,7 @@
 
 export default async function handler(req, res) {
     const { method, body } = req;
+    console.log("method = " + method);
     switch (method) {
         case 'POST':
             try {
