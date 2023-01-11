@@ -17,3 +17,18 @@ axios_instance_apiMeraki.interceptors.request.use(
         Promise.reject(error)
     }
 );
+
+export const axios_instance_nxoSMTP = axios.create({
+    baseURL: `https://service-nxo-smtp.digitalview-dev.nxo.eu/api/mail`,
+});
+
+axios_instance_nxoSMTP.interceptors.request.use(
+    async config => {
+        config.httpsAgent = await new https.Agent({ rejectUnauthorized: false })
+        return config;
+    },
+    error => {
+        Promise.reject(error)
+    }
+);
+

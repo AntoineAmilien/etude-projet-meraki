@@ -1,4 +1,4 @@
-import axios from "axios";
+import { axios_instance_nxoSMTP } from "../../../../utils/meraki/axios";
 
 export default async function handler(req, res) {
     const { method, body } = req;
@@ -38,7 +38,7 @@ export default async function handler(req, res) {
                     "template": "BASE"
                 };
 
-                await axios.post('https://service-nxo-smtp.digitalview-dev.nxo.eu/api/mail', objetMail)
+                await axios_instance_nxoSMTP.post('', objetMail, {})
                     .then(function (response) {
                         console.log("reponse deu axios qui push le mail : " + response);
                     })
@@ -46,7 +46,7 @@ export default async function handler(req, res) {
                 res.status(201).json({ success: true, message: "Retour de l'api meraki" })
             } catch (error) {
                 console.error(error)
-                res.status(500).json({ success: false, message: "Une erreur c'est produite pendant le traitement du signal webhook meraki" })
+                res.status(500).json({ success: false, message: "Une erreur c'est produite pendant le traitement du signal webhook meraki " + error })
             }
             break;
     }
