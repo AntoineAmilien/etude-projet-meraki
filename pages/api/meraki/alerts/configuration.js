@@ -21,19 +21,18 @@ export default async function handler(req, res) {
                         httpServerIds: []
                     },
                     alerts: putObjects
+
                 }
 
                 const networks = await axios_instance_apiMeraki.get(`/organizations/${organizationId}/networks`).then(response => { return response.data });
 
-                await Promise.all(networks.map(async (network) => {
+                for await (const network of networks) {
                     await axios_instance_apiMeraki.put(`/networks/${network.id}/alerts/settings`, putDataForApi)
                         .then(response => { return response.data })
-                        .catch(_error => { throw "une erreur c'est produite avecl'api meraki." });
-                }));
+                }
 
                 res.status(201).json({ success: true, message: "La configuration a bien été modifiée." })
             } catch (error) {
-                console.error(error)
                 res.status(500).json({ success: false, message: "Une erreur c'est produite pendant la modification de la configuration." })
             }
 
